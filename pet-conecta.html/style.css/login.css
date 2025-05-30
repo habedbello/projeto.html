@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+}
+body{   
+    background-color: #fff;
+    font-family: Arial;
+    margin: 0;
+}
+.login{
+    background-color: rgba(0, 0, 0, 0.4);
+    position:/*Ela define como um elemento é posicionado no documento*/ absolute;
+    top: 50%;/*especifica a distância entre a borda superior do elemento e a borda superior do seu elemento*/
+    left: 50%; /*especifica a distância entre a borda esquerda do elemento e a borda esquerda do seu elemento*/
+    transform: translate(-50%,-50%); /*desliza o elemento entre o eixo X e Y*/
+    padding: 50px; /*Aplica o mesmo preenchimento a todos os quatro lados (topo, direita, inferior, esquerda).*/
+    border-radius: 15px;
+    color: white;
+    border-style: inset;
+}
+button{
+    width: 100%;
+    height: 30px;
+}
+button:hover{
+    cursor: pointer;
+    background-color: aqua;
+
+}
+a{
+    text-decoration: none;
+    color: white;   
+}
+a:hover{
+    color: aqua;
+}
+img{
+    width: 100%;
+    height: 100vh;
+}
+input{
+    font-size: 20px;
+    border-radius: 5px;
+}
+input:hover{
+    cursor: auto;
+}
+input::placeholder{
+    font-size: 15px;
+}
+p{
+    color: white;
+    font-size: 15px;
+}
+p a:hover{
+    text-decoration: wavy;
+    color: aqua;
+}
+#robo{
+    font-size: 14px;
+}
