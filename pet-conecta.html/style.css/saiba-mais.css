@@ -9,13 +9,22 @@ header{
     font-family: arial; /*Refere-se ao tipo de letra utilizada*/
     margin-bottom: 10px;
 }
+nav a img{
+    width: 60px; /*é usada para definir a largura da área de conteúdo de um elemento HTML*/
+    height: 60px; /* é usada para definir a altura de um elemento HTML*/
+}
 nav{
     display: flex;
     justify-content:/*define como os itens são alinhados ao longo do eixo principal.*/ space-around;
     align-items: center;/*Ela define como os itens são alinhados ao longo do eixo transversal */
-    background-image: linear-gradient(cyan, navy, crimson);
+     background-image: linear-gradient(rgb(38, 121, 121), rgb(0, 113, 128), rgb(75, 151, 98));
     height: 80px; /*é usada para definir a altura da área de conteúdo de um elemento HTML*/
 }
+nav li:hover{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); 
+}
+
 nav ul{
     list-style: none; /*tira a bolinha do lado do nome na lista*/
     display: flex; /*faz com que a lista fique de forma horizontal*/
@@ -31,6 +40,8 @@ nav a{
 nav a:hover{ /*hover é usado para aplicar estilos a um elemento quando o cursor do mouse passa sobre ele*/
     cursor: pointer;/*mudar o estilo do cursor ao passar por cima*/
     color: aqua ;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); 
 }
 a img{
     width: 80px; /*é usada para definir a largura da área de conteúdo de um elemento HTML*/
@@ -39,6 +50,8 @@ a img{
 nav button:hover{
     cursor: pointer;
     color: aqua;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); 
 }
 nav button{
     background-color: rgba(0, 0, 0, 0.1);
@@ -46,6 +59,7 @@ nav button{
     border-color: rgba(0, 0, 0, 0.6);
     color: white;
     font-size: 16px;      
+    border: none;
 }
 body{
   background-color:  navajowhite;

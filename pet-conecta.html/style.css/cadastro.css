@@ -1,100 +1,128 @@
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial;
+}
+body{
+    background-color: #ca9797;
+    width: 100%;
+    margin-right: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    margin: 10px;
+    max-width: 900px;
+    width: 100%;
+    overflow: hidden;
+    justify-content: space-between;
+    display: flex;
+}
+.header{
+    background-color: rgb(4, 156, 106);
+    padding: 20px;
+    text-align: center;
+    color: #f1f1f1;
+    
+}
+.form{
+    padding: 18px;
+    width: 500px;
+}
+.form-content{
+    margin-bottom: 8px;
+    padding-bottom: 18px;
+    position: relative;
+}
+.form-content label{
+    display: inline-block;
+    margin-bottom: 4px;
+}
+.form-content input{
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    padding: 8px;
+    border: 2px solid #dfdfdf;
+}
+.form-content a{
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    visibility: hidden;
+}
+.form-content button{
+    background-color: aqua;
+    color: #fff;
+}
+.radio-group a{
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    visibility: hidden;
+}
+.estado{
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 250px; 
+}
+.divisor{
+    width: 0;
+    max-height: 100%;
+    border-color: #d3d3d3 solid;
+    border-style: outset;
+}
+/* grupo de button*/
+.button-group {
+    margin-top: 10px;
+    width: 100%;
 
-        .container {
-            background-color: rgba(0, 0, 0, 0.4);
-            padding: 0;
-            border-radius: 8px;
-            display: inline;
-            gap: 20px;
-            position: absolute;
-            border-style: inset;
-        }
+}
 
-        body {
-            font-family: arial;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-        }
+button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
 
-        form {
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 600px;
-            margin: auto;
-        }
+button[type="submit"] {
+    background-color: white;
+    color: black;
+}
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: whitesmoke;
-        }
+button[type="reset"] {
+    background-color: aqua;
+    color: black;
+}
 
-        input[type="text"],
-        input[type="date"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="password"],
-        select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
+button[type="button"] {
+    background-color: white;
+    color: black;
+}
 
-        input[type="radio"] {
-            margin-right: 5px;
-        }
+button:hover {
+    color: aqua;
+    background-color: black;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
 
-        .radio-group label {
-            display: inline-block;
-            margin-right: 15px;
-            font-weight: normal;
-        }
+/*fim grupo de button*/
 
-        .button-group {
-            margin-top: 10px;
-            width: 100%;
 
-        }
-
-        button {
-            padding: 10px 20px;
-            margin-left: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button[type="submit"] {
-            background-color: white;
-            color: black;
-        }
-
-        button[type="reset"] {
-            background-color: aqua;
-            color: black;
-        }
-
-        button[type="button"] {
-            background-color: white;
-            color: black;
-        }
-        button:hover{
-            color: aqua;
-            background-color: black;
-        }
-
-        img {
-            width: 220%;
-            right: 100%;
-        }
+.form-content.error input{
+    border-color: #ff3b25;
+}
+.form-content.error a{
+    border-color: #ff3b25;
+}

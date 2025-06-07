@@ -12,13 +12,13 @@
 <body>
     <header>
         <nav class="menu_superior">
-            <a class="logo animate__animated animate__zoomIn" href="index.html"><img src="img/logo.jpeg"></a>
-            <a href="index.html" class="animate__animated animate__zoomIn"><em>PET CONECTA</em></a>
+            <a class="logo animate__animated animate__zoomIn" href="index.html"><img src="img/casa-de-animais.png"></a>
+            <a href="index.html" class="animate__animated animate__zoomIn" id="navh1"><em>PET CONECTA</em></a>
             <ul>
                 <li class="animate__animated animate__zoomIn"><a href="index.html">Home</a></li>
-                <li class="animate__animated animate__zoomIn"><a href="">Adote</a></li>
-                <li class="animate__animated animate__zoomIn"><a href="">Doações</a></li>
-                <li class="animate__animated animate__zoomIn"><a href="saiba-mais.html">Saiba mais</a></li>
+                <li class="animate__animated animate__zoomIn"><a href="adote.html">Adote aqui</a></li>
+                <li class="animate__animated animate__zoomIn"><a href="">Doação</a></li>
+                <li class="animate__animated animate__zoomIn"><a href="saiba-mais.html">Sobre nós</a></li>
             </ul>
             <div>
                 <a href="login.html"><button class="btn animate__animated animate__zoomIn">ENTRAR</button></a>
@@ -28,9 +28,49 @@
         </nav>
     </header>
     <main>
-        <p>dsdsdsdsdsdsds</p>
-        <p>dsdsdsdsdsdsdsdsd</p>
-        <h1>dsdsdsdsds</h1>
+        <a href="cadastro.html"><img src="img/carrocel1.png" id="topo-img"></a>
+        <div class="baixo-img">
+        </div><br><br>
+
+        <!--inicio da parte de doações-->
+        <h1 class="doação-h1">Conheça alguns de nossos amiguinhos </h1><br><br>
+        <h3 class="doação-h3">clique abaixo para conhecer melhor !</3><br>
+
+            <section class="adoção">
+                <div class="img1-adoção">
+                    <a href="adote.html"><img src="img/img1-adoção.png" id="img1"></a>
+                </div>
+                <div class="img2-adoção">
+                    <a href="adote.html"><img src="img/img2-adoção.png" id="img2"></a>
+                </div>
+                <div class="img3-adoção">
+                    <a href="adote.html"><img src="img/img3-adoção.png" id="img3"></a>
+                </div>
+                <div class="img4-adoção">
+                    <a href="adote.html"><img src="img/img4-adoção.png" id="img4"></a>
+                </div>
+            </section><br><br><br><br>
+            <!--final da parte de doações-->
+
+            
+            <section class="sobrenos">
+                <div class="doacao">
+                    <h1 class="sobrenosh1">Doações</h1>
+                     <p><em>A Federação Brasileira dos Animais tem a missão de cadastrar de forma profissional 
+                        todos os animais domésticos e de cativeiro, para consulta em caso de roubo, perda, 
+                        e identificação em viagens, ou seja ele tem um Registro na Federação.</em></p><br>
+
+                      <p><em>Com este serviço também teremos o mapeamento das raças,quantidades por regiões, sexo,
+                         e idade, dando um panorama real dos animais que convivem em nosso meio.</em></p>
+                         <button id="btnsobrenos" type="button">SAIBA MAIS <span class="pata">🐾</span></button>
+                </div>
+                <div class="imgsobrenos">
+                <img src="img/thumbs.jpg" >
+                </div>
+            </section>
+            
+
+
     </main>
 
     <footer>
@@ -45,7 +85,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script>
         const toggleButton = document.getElementById('toggle-dark-mode');
         const body = document.body;

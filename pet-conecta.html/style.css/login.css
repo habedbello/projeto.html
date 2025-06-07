@@ -26,7 +26,8 @@ button{
 button:hover{
     cursor: pointer;
     background-color: aqua;
-
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); 
 }
 a{
     text-decoration: none;
