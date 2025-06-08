@@ -138,13 +138,15 @@ body.dark-mode {
 
 /*final da aba de adoção */
 
-/*sobre nós index*/
+
+/*Início da aba DOAÇÃo index*/
+
 .sobrenos {
     display: flex; /* Usa flexbox para um layout flexível */
     align-items: center; /* Alinha os itens verticalmente ao centro */
     justify-content: space-around; /* Distribui o espaço ao redor dos itens */
     padding: 40px 20px; /* Adiciona um preenchimento (padding) ao redor da seção */
-     background-image: linear-gradient(45deg, rgb(250, 245, 245), rgb(255, 255, 255));
+    background-image: linear-gradient(45deg, rgb(250, 245, 245), rgb(255, 255, 255));
     font-family: Arial, sans-serif; /* Especifica uma fonte comum */
     color: #333; /* Cor de texto mais escura para melhor legibilidade */
 }
@@ -158,14 +160,14 @@ body.dark-mode {
 }
 
 .sobrenosh1 {
-    font-size: 2.5em; /* Tamanho da fonte maior para o título principal */
+    font-size: 1.5em; /* Tamanho da fonte maior para o título principal */
     color: #039227; /* Uma cor distinta para o título */
     margin-bottom: 20px; /* Espaço abaixo do título */
     text-align: left; /* Alinha o título à esquerda */
 }
 
 .doacao p {
-    font-size: 1.1em; /* Tamanho da fonte ligeiramente maior para os parágrafos */
+    font-size: 20px; /* Tamanho da fonte ligeiramente maior para os parágrafos */
     line-height: 1.6; /* Melhora a legibilidade com mais espaçamento entre as linhas */
     margin-bottom: 15px; /* Espaço entre os parágrafos */
     color: #89a889;
@@ -177,6 +179,17 @@ body.dark-mode {
     max-width: 400px auto; /* Limita a largura máxima do contêiner da imagem */
     text-align: center; /* Centraliza a imagem se ela for menor que seu contêiner */
     overflow: hidden;
+}
+.bordaimg{
+    position: absolute;
+    display: flex;
+    width: 450px;
+    height: 350px;
+    border: rgb(223, 233, 88);
+    border-style: groove;
+    margin-top: 35px;
+    margin-left: 78px;
+    overflow: visible;
 }
 
 .imgsobrenos img {
@@ -212,7 +225,7 @@ body.dark-mode {
     line-height: 1;
 }
 
-
+/* final da section DOAÇÃo index */
 
 
 

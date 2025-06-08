@@ -2,24 +2,165 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Pet Conecta</title>
+    <title>Login</title>
+    <!-- Bootstrap CSS para estilização e responsividade -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css/login.css">
 </head>
 <body>
-    <img src="img/pet1.jpg" >
-    <div class="login">
-        <a href="index.html"><h1><em>LOGIN</em></h1></a>
-        <label for="usuario">Usuário</label><br>
-        <input type="text" id="usuario" placeholder=" Nome de usuário" ><br>
-        <br>
-        <label for="senha">senha</label><br>
-        <input type="password" placeholder=" Digite sua senha" id="sennha"><br><br>
-        <input type="radio" id="robo">
-        <label for="robo" id="robo">Não sou um robô</label>
-        <br><br>
-        <a href="index.html"><button>ENTRAR</button></a><br><br>
-        <p>Não possui conta? <a href="cadastro.html"><u>Cadastre-se</u></p></a>
-    </div>
+     <header>
+        <nav class="menu_superior">
+            <a class="logo animate__animated animate__zoomIn" href="index.html"><img src="img/casa-de-animais.png"></a>
+            <a href="index.html" class="animate__animated animate__zoomIn" id="navh1"><em>PET CONECTA</em></a>
+            <ul>
+                <li class="animate__animated animate__zoomIn"><a href="index.html">Home</a></li>
+                <li class="animate__animated animate__zoomIn"><a href="adote.html">Adote aqui</a></li>
+                <li class="animate__animated animate__zoomIn"><a href="">Doação</a></li>
+                <li class="animate__animated animate__zoomIn"><a href="saiba-mais.html">Sobre nós</a></li>
+            </ul>
+            <div>
+                <a href="login.html"><button class="btn animate__animated animate__zoomIn">Login</button></a>
+                <a href="cadastro.html"><button class="animate__animated animate__zoomIn">Cadastro</button></a>
+                <button id="toggle-dark-mode" class="btn animate__animated animate__zoomIn"> ◐ </button>
+            </div>
+
+            <!-- Informações do usuário logado (inicialmente ocultas) -->
+            <div id="user-info" class="d-none">
+                <span id="logged-in-user"></span>
+                <button class="btn btn-sm btn-outline-light ms-2" id="logout-btn">Deslogar</button>
+            </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <h2 class="text-center mb-4">Login de Usuário</h2>
+        <div class="card p-4 mx-auto" style="max-width: 400px;">
+            <!-- Formulário de Login -->
+            <form id="loginForm" novalidate>
+                <div class="mb-3">
+                    <label for="loginUsername" class="form-label">Login:</label>
+                    <input type="text" class="form-control" id="loginUsername" required placeholder="Seu login">
+                    <div class="invalid-feedback">Por favor, insira seu login.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Senha:</label>
+                    <input type="password" class="form-control" id="loginPassword" required placeholder="Sua senha">
+                    <div class="invalid-feedback">Por favor, insira sua senha.</div>
+                </div>
+                <div class="d-grid gap-2 mb-3">
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                    <button type="button" class="btn btn-secondary" id="limparLogin">Limpar</button>
+                </div>
+                <div class="text-center">
+                    <a href="cadastro.html">Novo por aqui? Cadastre-se!</a>
+                </div>
+            </form>
+            <!-- Toast Container para mensagens de feedback -->
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div id="feedbackToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto">Notificação</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2025 Empresa X. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap Bundle com Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Personalizado para funcionalidades gerais e de login/logout -->
+    <script src="javaScript/main.js"></script>
+    <!-- JavaScript Personalizado para funcionalidades de acessibilidade -->
+    <script src="javaScript/acessibilidade.js"></script>
+    <script>
+        // Função para exibir mensagens de feedback utilizando o componente Toast do Bootstrap
+        function showFeedback(message, type) {
+            const toastElement = document.getElementById('feedbackToast');
+            const toastBody = toastElement.querySelector('.toast-body');
+            toastBody.textContent = message;
+            toastElement.classList.remove('text-bg-success', 'text-bg-danger', 'text-bg-warning', 'text-bg-info');
+            toastElement.classList.add(`text-bg-${type}`);
+            const toast = new bootstrap.Toast(toastElement);
+            toast.show();
+        }
+
+        // Listener para o evento de submissão do formulário de login
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+            const form = event.target;
+            const loginInput = document.getElementById('loginUsername');
+            const passwordInput = document.getElementById('loginPassword');
+
+            // Limpa classes de validação anteriores
+            loginInput.classList.remove('is-invalid', 'is-valid');
+            passwordInput.classList.remove('is-invalid', 'is-valid');
+
+            let isValid = true; // Flag para controlar a validade geral do formulário
+
+            // Validação de preenchimento do campo Login
+            if (loginInput.value.trim() === '') {
+                loginInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                loginInput.classList.add('is-valid');
+            }
+
+            // Validação de preenchimento do campo Senha
+            if (passwordInput.value.trim() === '') {
+                passwordInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                passwordInput.classList.add('is-valid');
+            }
+
+            // Se os campos estiverem preenchidos
+            if (isValid) {
+                // Recupera as credenciais temporárias do localStorage (simulação de autenticação)
+                const storedLogin = localStorage.getItem('tempLogin');
+                const storedSenha = localStorage.getItem('tempSenha');
+
+                // Simula a autenticação comparando com as credenciais salvas
+                if (loginInput.value === storedLogin && passwordInput.value === storedSenha) {
+                    showFeedback('Login realizado com sucesso! Redirecionando...', 'success');
+                    // Salva o login autenticado para exibição em todas as telas
+                    localStorage.setItem('loggedInUser', loginInput.value);
+                    // Redireciona para a tela principal após um pequeno atraso
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } else {
+                    // Caso as credenciais estejam incorretas
+                    showFeedback('Login ou senha incorretos.', 'danger');
+                    // Redireciona para a tela de erro, passando uma mensagem na URL
+                    setTimeout(() => {
+                        window.location.href = 'erro.html?mensagem=Autenticação%20falhou';
+                    }, 1500); // Dá tempo para o toast aparecer
+                }
+            } else {
+                // Se algum campo não estiver preenchido
+                showFeedback('Por favor, preencha todos os campos.', 'danger');
+            }
+        });
+
+        // Listener para o botão 'Limpar'
+        document.getElementById('limparLogin').addEventListener('click', function() {
+            document.getElementById('loginForm').reset(); // Reseta os campos do formulário
+            // Remove as classes de validação dos campos
+            document.getElementById('loginUsername').classList.remove('is-invalid', 'is-valid');
+            document.getElementById('loginPassword').classList.remove('is-invalid', 'is-valid');
+            showFeedback('Campos de login limpos.', 'info');
+        });
+    </script>
+
 </body>
 </html>
