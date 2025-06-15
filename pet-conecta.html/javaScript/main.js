@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoutBtn = document.getElementById('logout-btn'); // Botão de logout
     const mainNav = document.getElementById('main-nav'); // Barra de navegação principal
 
+
     // Função para verificar o status de login do usuário
     function checkLoginStatus() {
         // Tenta obter o nome do usuário logado do localStorage
@@ -15,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
             userInfoDiv.classList.remove('d-none'); // Exibe a div de informações do usuário
             loggedInUserSpan.textContent = `Olá, ${loggedInUser}!`; // Define o texto de boas-vindas
             mainNav.classList.remove('d-none'); // Exibe a barra de navegação principal
-        } else {
             // Se não houver usuário logado:
             userInfoDiv.classList.add('d-none'); // Oculta a div de informações do usuário
             loggedInUserSpan.textContent = ''; // Limpa o texto de boas-vindas
@@ -47,6 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'index.html'; 
         });
     }
+
+    
 
     // Chama a função checkLoginStatus assim que o DOM é completamente carregado
     checkLoginStatus();

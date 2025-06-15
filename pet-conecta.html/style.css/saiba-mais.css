@@ -49,7 +49,7 @@ a img{
 }
 nav button:hover{
     cursor: pointer;
-    color: aqua;
+    color: cyan;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px); 
 }
@@ -58,111 +58,171 @@ nav button{
     border-radius: 5px ;
     border-color: rgba(0, 0, 0, 0.6);
     color: white;
-    font-size: 16px;      
-    border: none;
+    font-size: 16px;     
 }
-body{
-  background-color:  navajowhite;
-}
+
+/* Estilização geral para a seção "Sobre Nós" */
 .sobre-nos {
-  padding: 40px 20px; /* Espaçamento interno superior e inferior, laterais */
-  background-color: navajowhite; 
+    padding: 60px 0;
+    background-color: #e0f2f1; 
+    color: #333;
 }
 
-.container {
-  max-width: 1200px; /* Largura máxima do conteúdo */
-  margin: 0 auto; /* Centraliza o conteúdo na página */
-  padding: 0 20px; /* Espaçamento interno nas laterais do container */
+.sobre-nos .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-
+/* Estilização do cabeçalho */
 .sobre-nos__cabecalho {
-  text-align: center; /* Centraliza o título e o subtítulo */
-  margin-bottom: 30px; /* Espaço abaixo do cabeçalho */
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 .sobre-nos__cabecalho h2 {
-  font-size: 2.5em; 
-  color: #333; 
-  margin-bottom: 10px; /* Espaço abaixo do título */
+    font-size: 2.8em;
+    color: #00796b; 
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.sobre-nos__cabecalho h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #26a69a;
+    border-radius: 2px;
 }
 
 .sobre-nos__cabecalho .subtitulo {
-  font-size: 1.1em; 
-  color: #666; 
-  line-height: 1.6; /* Espaçamento entre as linhas do subtítulo */
+    font-size: 1.2em;
+    color: #546e7a; 
 }
 
-
+/* Seções de conteúdo */
 .sobre-nos__conteudo {
-  display: grid; 
-  grid-template-columns: 1fr; /* Uma coluna por padrão */
-  gap: 30px; /* Espaçamento entre os elementos do grid */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
 }
 
+
+.sobre-nos__historia,
+.sobre-nos__missao,
+.sobre-nos__visao,
+.sobre-nos__valores,
+.sobre-nos__equipe,
+.sobre-nos__agradecimento {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sobre-nos__historia:hover,
+.sobre-nos__missao:hover,
+.sobre-nos__visao:hover,
+.sobre-nos__valores:hover,
+.sobre-nos__equipe:hover,
+.sobre-nos__agradecimento:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
 
 .sobre-nos__historia h3,
-.sobre-nos__missao-visao h3,
+.sobre-nos__missao h3,
+.sobre-nos__visao h3,
 .sobre-nos__valores h3,
 .sobre-nos__equipe h3,
 .sobre-nos__agradecimento h3 {
-  font-size: 1.8em; 
-  color: #333; 
-  margin-bottom: 15px; /* Espaço abaixo dos subtítulos */
+    color: #00897b;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #4db6ac;
+    padding-bottom: 10px;
 }
 
 .sobre-nos__historia p,
-.sobre-nos__missao-visao p,
+.sobre-nos__missao p,
+.sobre-nos__visao p,
 .sobre-nos__equipe p,
 .sobre-nos__agradecimento p {
-  font-size: 1em; 
-  color: #555; 
-  line-height: 1.7; /* Espaçamento entre as linhas do texto */
-  margin-bottom: 20px; 
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #455a64; 
+    margin-bottom: 15px;
+}
+
+.sobre-nos__historia p:last-child,
+.sobre-nos__missao p:last-child,
+.sobre-nos__visao p:last-child,
+.sobre-nos__equipe p:last-child,
+.sobre-nos__agradecimento p:last-child {
+    margin-bottom: 0;
 }
 
 
 .sobre-nos__missao-visao {
-  display: grid;
-  grid-template-columns: 1fr; /* Uma coluna por padrão */
-  gap: 20px;
-}
-
-.sobre-nos__missao,
-.sobre-nos__visao {
-  padding: 20px;
-  border: 1px solid #ddd; 
-  border-radius: 5px; 
-  background-color:  rgb(247, 202, 202); 
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
 }
 
 
+
+/* Lista de Valores */
 .sobre-nos__valores ul {
-  list-style: none; /* Remove os marcadores de lista padrão */
-  padding: 0; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sobre-nos__valores li {
-  font-size: 1em; 
-  color: #555;
-  line-height: 1.8; /* Espaçamento entre as linhas dos itens */
-  margin-bottom: 10px; 
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    position: relative;
+    color: #455a64; 
 }
 
 .sobre-nos__valores li strong {
-  font-weight: bold; /* Destaca os nomes dos valores */
-  color: #333; 
+    color: #00796b; 
+}
+
+.sobre-nos__valores li::before {
+    font-family: 'Font Awesome 5 Free'; 
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #26a69a; 
+    font-weight: 900;
+}
+
+/* Opcional: Animação para o cabeçalho */
+.animate__animated.animate__flipInX {
+    animation-duration: 1.5s;
 }
 
 
-.sobre-nos__equipe p {
-  margin-bottom: 30px; 
+footer{
+    background-image: linear-gradient(rgb(38, 121, 121), rgb(0, 113, 128), rgb(75, 151, 98));
+    color: black;
+    text-align: center;
+    padding: 20px;
+    position: relative;
 }
 
 
-.sobre-nos__agradecimento p {
-  font-style: italic; 
-}
+
 
 /* Media query para telas maiores (tablets e desktops) */
 @media (min-width: 768px) {
@@ -200,12 +260,3 @@ body{
   }
 }
 
-footer{
-    color: black;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-}
-footer.footer-content{
-  background-color: black;
-}

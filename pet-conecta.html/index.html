@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style.css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- CSS Personalizado para identidade visual e acessibilidade -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 </head>
 
 <body>
@@ -19,15 +19,16 @@
             <a href="index.html" class="animate__animated animate__zoomIn" id="navh1"><em>PET CONECTA</em></a>
             <ul>
                 <li class="animate__animated animate__zoomIn"><a href="index.html">Home</a></li>
-                <li class="animate__animated animate__zoomIn"><a href="adote.html">Adote aqui</a></li>
-                <li class="animate__animated animate__zoomIn"><a href="">Doação</a></li>
+                <li class="animate__animated animate__zoomIn"><a href="bemestar.html">Bem-Estar Animal</a></li>
+                <li class="animate__animated animate__zoomIn"><a href="adoção.html">Adoção/Doação</a></li>
                 <li class="animate__animated animate__zoomIn"><a href="saiba-mais.html">Sobre nós</a></li>
             </ul>
-            <div>
+            <div class="login-cadastro" id="cadastro-login">
                 <a href="login.html"><button class="btn animate__animated animate__zoomIn">Login</button></a>
                 <a href="cadastro.html"><button class="animate__animated animate__zoomIn">Cadastro</button></a>
-                <button id="toggle-dark-mode" class="btn animate__animated animate__zoomIn"> ◐ </button>
             </div>
+
+            <button id="toggle-dark-mode" class="btn animate__animated animate__zoomIn"> ◐ </button>
 
             <!-- Informações do usuário logado (inicialmente ocultas) -->
             <div id="user-info" class="d-none">
@@ -47,16 +48,16 @@
 
             <section class="adoção">
                 <div class="img1-adoção">
-                    <a href="adote.html"><img src="img/img1-adoção.png" id="img1"></a>
+                    <a href="adoção.html#como-adotar"><img src="img/img1-adoção.png" id="img1"></a>
                 </div>
                 <div class="img2-adoção">
-                    <a href="adote.html"><img src="img/img2-adoção.png" id="img2"></a>
+                    <a href="adoção.html#adote"><img src="img/img2-adoção.png" id="img2"></a>
                 </div>
                 <div class="img3-adoção">
-                    <a href="adote.html"><img src="img/img3-adoção.png" id="img3"></a>
+                    <a href="adoção.html#adote"><img src="img/img3-adoção.png" id="img3"></a>
                 </div>
                 <div class="img4-adoção">
-                    <a href="adote.html"><img src="img/img4-adoção.png" id="img4"></a>
+                    <a href="adoção.html#adote"><img src="img/img4-adoção.png" id="img4"></a>
                 </div>
             </section><br><br><br><br>
             <!--final da parte de doações-->
@@ -71,7 +72,7 @@
 
                       <p><em>Com este serviço também teremos o mapeamento das raças,quantidades por regiões, sexo,
                          e idade, dando um panorama real dos animais que convivem em nosso meio.</em></p>
-                         <button id="btnsobrenos" type="button">SAIBA MAIS <span class="pata">🐾</span></button>
+                        <a href="adoção.html#doe"> <button id="btnsobrenos" type="button">SAIBA MAIS <span class="pata">🐾</span></button></a>
                 </div>
                  <div class="imgsobrenos">
                     <div class="bordaimg"></div>
@@ -96,22 +97,10 @@
         </div>
     </footer>
 
-    <script>
-        const toggleButton = document.getElementById('toggle-dark-mode');
-        const body = document.body;
-
-        toggleButton.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-        });
-    </script>
-
-
-
+    <script src="javaScript/darkmode.js"></script>
     <!-- JavaScript Personalizado para funcionalidades gerais e de login/logout -->
     <script src="javaScript/main.js"></script>
-    <!-- JavaScript Personalizado para funcionalidades de acessibilidade -->
-    <script src="javaScript/acessibilidade.js"></script>
-    
+
 </body>
 
 </html>

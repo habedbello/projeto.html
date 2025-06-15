@@ -83,17 +83,11 @@ body {
 
 /* Estilos para o modo escuro */
 body.dark-mode {
-    background-color: #332929;
+    background-color: #000000;
     color: white;
 }
 
-.menu_superior {
-    background-color: #f8f9fa; /* Cor do menu claro */
-}
 
-.menu_superior.dark-mode {
-    background-color: #4d4747; /* Cor do menu escuro */
-}
 
 
 /* parte das imagens de adoção dos pts */
