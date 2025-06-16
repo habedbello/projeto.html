@@ -4,11 +4,15 @@
     box-sizing: border-box;
 }
 
-header{
+.header1{
     margin: -5px; /*serve para tirar a margem superior do body acima do header*/
     font-size: 20px; /*Serve para controlar o tamanho do texto*/
     font-family: arial; /*Refere-se ao tipo de letra utilizada*/
     margin-bottom: 10px;
+    position: fixed;
+    top: 0;
+    width: 101%;
+    z-index: 1000;
 }
 #navh1:hover{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -24,6 +28,7 @@ nav{
 nav ul{
     list-style: none; /*tira a bolinha do lado do nome na lista*/
     display: flex; /*faz com que a lista fique de forma horizontal*/
+    margin-top: 15px;
 }
 nav li{
     letter-spacing: 3px; /*espaçamento entre cada letra*/
@@ -89,6 +94,7 @@ body {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
 }
 
 .header {
@@ -353,6 +359,15 @@ footer{
     position: relative;
 }
 
-footer p {
+/* Estilos para o modo claro */
+body {
+    background-color: white;
+    color: black;
     margin: 0;
+}
+
+/* Estilos para o modo escuro */
+body.dark-mode {
+    background-color: #000000;
+    color: white;
 }

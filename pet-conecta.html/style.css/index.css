@@ -1,7 +1,7 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;  
+  box-sizing: border-box,;  
 }
 
 
@@ -11,6 +11,10 @@ header{
     font-size: 20px; /*Serve para controlar o tamanho do texto*/
     font-family: arial; /*Refere-se ao tipo de letra utilizada*/
     margin-bottom: 10px;
+    position: fixed;
+    top: 0;
+    width: 101%;
+    z-index: 1000;
 }
 #navh1:hover{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -30,6 +34,7 @@ nav ul{
 nav li{
     letter-spacing: 3px; /*espaçamento entre cada letra*/
     margin-left: 70px; /* espaçamento entre cada item da lista*/
+    margin-top: 15px;
 }
 nav li:hover{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -69,7 +74,7 @@ img#topo-img {
     width: 100%; /* ou qualquer tamanho */
     height: 300px; /* mantém a proporção da imagem */
     object-fit: cover; 
-    margin-top: -5px;
+    margin-top: 80px;
     transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 

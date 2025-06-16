@@ -8,6 +8,10 @@ header{
     font-size: 20px; /*Serve para controlar o tamanho do texto*/
     font-family: arial; /*Refere-se ao tipo de letra utilizada*/
     margin-bottom: 10px;
+    position: fixed;
+    top: 0;
+    width: 101%;
+    z-index: 1000;
 }
 nav a img{
     width: 60px; /*é usada para definir a largura da área de conteúdo de um elemento HTML*/
@@ -17,7 +21,7 @@ nav{
     display: flex;
     justify-content:/*define como os itens são alinhados ao longo do eixo principal.*/ space-around;
     align-items: center;/*Ela define como os itens são alinhados ao longo do eixo transversal */
-     background-image: linear-gradient(rgb(38, 121, 121), rgb(0, 113, 128), rgb(75, 151, 98));
+    background-image: linear-gradient(rgb(38, 121, 121), rgb(0, 113, 128), rgb(75, 151, 98));
     height: 80px; /*é usada para definir a altura da área de conteúdo de um elemento HTML*/
 }
 nav li:hover{
@@ -28,6 +32,7 @@ nav li:hover{
 nav ul{
     list-style: none; /*tira a bolinha do lado do nome na lista*/
     display: flex; /*faz com que a lista fique de forma horizontal*/
+    margin-top: 15px;
 }
 nav li{
     letter-spacing: 3px; /*espaçamento entre cada letra*/
@@ -86,6 +91,7 @@ nav button{
     margin-bottom: 15px;
     position: relative;
     display: inline-block;
+    margin-top: 30px;
 }
 
 .sobre-nos__cabecalho h2::after {
@@ -260,3 +266,15 @@ footer{
   }
 }
 
+/* Estilos para o modo claro */
+body {
+    background-color: white;
+    color: black;
+    margin: 0;
+}
+
+/* Estilos para o modo escuro */
+body.dark-mode {
+    background-color: #000000;
+    color: white;
+}

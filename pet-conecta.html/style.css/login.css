@@ -26,6 +26,7 @@ nav{
 nav ul{
     list-style: none; /*tira a bolinha do lado do nome na lista*/
     display: flex; /*faz com que a lista fique de forma horizontal*/
+    margin-top: 15px;
 }
 nav li{
     letter-spacing: 3px; /*espaçamento entre cada letra*/
