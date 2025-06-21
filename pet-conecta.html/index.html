@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PET CONECTA</title>
     <link rel="stylesheet" href="style.css/index.css">
+    <link rel="stylesheet" href="style.css/darkmode.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
 </head>
 
 <body>
@@ -17,6 +18,10 @@
         <nav class="menu_superior">
             <a class="logo animate__animated animate__zoomIn" href="index.html"><img src="img/casa-de-animais.png"></a>
             <a href="index.html" class="animate__animated animate__zoomIn" id="navh1"><em>PET CONECTA</em></a>
+
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i> <!-- Ícone de hambúrgu -->
+            </button>
             <ul>
                 <li class="animate__animated animate__zoomIn"><a href="index.html">Home</a></li>
                 <li class="animate__animated animate__zoomIn"><a href="bemestar.html">Bem-Estar Animal</a></li>
@@ -24,19 +29,27 @@
                 <li class="animate__animated animate__zoomIn"><a href="saiba-mais.html">Sobre nós</a></li>
             </ul>
             <div class="login-cadastro" id="cadastro-login">
-                <a href="login.html"><button class="btn animate__animated animate__zoomIn">Login</button></a>
-                <a href="cadastro.html"><button class="animate__animated animate__zoomIn">Cadastro</button></a>
+                <a href="login.html"><button id="btn-login-cadastro"
+                        class="btn animate__animated animate__zoomIn">Login</button></a>
+                <a href="cadastro.html"><button id="btn-login-cadastro"
+                        class="animate__animated animate__zoomIn">Cadastro</button></a>
             </div>
-
+            <!-- ------------------------------BOTÕES DE FUNCIONALIDADE---------------------------------------->
             <button id="toggle-dark-mode" class="btn animate__animated animate__zoomIn"> ◐ </button>
+
+            <!-----------------------------------FINAL DOS BOTÕES----------------------------------------------->
 
             <!-- Informações do usuário logado (inicialmente ocultas) -->
             <div id="user-info" class="d-none">
                 <span id="logged-in-user"></span>
-                <button class="btn btn-sm btn-outline-light ms-2" id="logout-btn">Deslogar</button>
+                <button class="btn btn-sm btn-outline-light ms-2" id="logout-btn">Sair</button>
             </div>
         </nav>
     </header>
+
+
+
+
     <main>
         <a href="cadastro.html"><img src="img/carrocel1.png" id="topo-img"></a>
         <div class="baixo-img">
@@ -62,24 +75,27 @@
             </section><br><br><br><br>
             <!--final da parte de doações-->
 
-            
+
             <section class="sobrenos">
                 <div class="doacao">
                     <h1 class="sobrenosh1">Doações</h1>
-                     <p><em>A Federação Brasileira dos Animais tem a missão de cadastrar de forma profissional 
-                        todos os animais domésticos e de cativeiro, para consulta em caso de roubo, perda, 
-                        e identificação em viagens, ou seja ele tem um Registro na Federação.</em></p><br>
+                    <p><em>A PET CONECTA tem a missão de promover a adoção responsável de todos
+                            os animais domésticos e de cativeiro, para que encontrem lares seguros, cheios de amor e
+                            carinho,
+                            evitando o abandono e garantindo uma vida digna a eles.</em></p><br>
 
-                      <p><em>Com este serviço também teremos o mapeamento das raças,quantidades por regiões, sexo,
-                         e idade, dando um panorama real dos animais que convivem em nosso meio.</em></p>
-                        <a href="adoção.html#doe"> <button id="btnsobrenos" type="button">SAIBA MAIS <span class="pata">🐾</span></button></a>
+                    <p><em>Com este serviço, também teremos o controle e acompanhamento de animais adotados,
+                            a quantidade por regiões, sexo, e idade, dando um panorama real dos animais que encontraram
+                            um lar em nosso meio.</em></p>
+                    <a href="adoção.html#doe"> <button id="btnsobrenos" type="button">SAIBA MAIS <span
+                                class="pata">🐾</span></button></a>
                 </div>
-                 <div class="imgsobrenos">
+                <div class="imgsobrenos">
                     <div class="bordaimg"></div>
-                    <img src="img/thumbs.jpg" >
+                    <img src="img/thumbs.jpg">
                 </div>
             </section>
-            
+
 
 
     </main>
@@ -97,9 +113,10 @@
         </div>
     </footer>
 
-    <script src="javaScript/darkmode.js"></script>
+    <script src="javaScript/darkmodee.js"></script>
     <!-- JavaScript Personalizado para funcionalidades gerais e de login/logout -->
     <script src="javaScript/main.js"></script>
+    <script src="javaScript/hamburguer.js"></script>
 
 </body>
 

@@ -10,6 +10,7 @@
     <!-- Font Awesome para ícones visuais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css/cadastro.css">
+    <link rel="stylesheet" href="style.css/darkmode.css">
 </head>
 
 <body>
@@ -17,6 +18,8 @@
         <nav class="menu_superior">
             <a  href="index.html"><img src="img/casa-de-animais.png"></a>
             <a href="index.html"  id="navh1"><em>PET CONECTA</em></a>
+
+            
             <ul>
                 <li ><a href="index.html">Home</a></li>
                 <li ><a href="bemestar.html">Bem-Estar Animal</a></li>
@@ -24,8 +27,8 @@
                 <li ><a href="saiba-mais.html">Sobre nós</a></li>
             </ul>
             <div class="login-cadastro" id="cadastro-login">
-                <a href="login.html"><button >Login</button></a>
-                <a href="cadastro.html"><button >Cadastro</button></a>
+                <a href="login.html"><button id="btn-login-cadastro" >Login</button></a>
+                <a href="cadastro.html"><button id="btn-login-cadastro" >Cadastro</button></a>
             </div>
 
             <button id="toggle-dark-mode" > ◐ </button>
@@ -33,359 +36,480 @@
             <!-- Informações do usuário logado (inicialmente ocultas) -->
             <div id="user-info" class="d-none">
                 <span id="logged-in-user"></span>
-                <button class="btn btn-sm btn-outline-light ms-2" id="logout-btn">Deslogar</button>
+                <button class="btn btn-sm btn-outline-light ms-2" id="logout-btn">Sair</button>
             </div>
         </nav>
     </header>
 
 
     <main>
-        <h2 class="text-center mb-4">Cadastro de Usuário</h2>
-        <div class="card p-4 mx-auto" style="max-width: 700px;">
+    <h2 class="text-center mb-4">Cadastro de Usuário</h2>
+    <div class="card p-4 mx-auto" style="max-width: 700px;">
 
-            <!-- Formulário de Cadastro: 'novalidate' desabilita validação HTML5 padrão -->
-            <form id="cadastroForm" novalidate>
-                <div class="mb-3">
-                    <label for="nomeCompleto" class="form-label">Nome Completo:</label>
-                    <input type="text" class="form-control" id="nomeCompleto" required minlength="15" maxlength="80"
-                        placeholder="Seu nome completo">
-                    <div class="invalid-feedback">O nome completo deve ter entre 15 e 80 caracteres alfabéticos.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="dataNascimento" class="form-label">Data de Nascimento:</label>
-                    <input type="date" class="form-control" id="dataNascimento" required>
-                    <div class="invalid-feedback">Por favor, insira sua data de nascimento.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="sexo" class="form-label">Sexo:</label>
-                    <select class="form-select" id="sexo" required aria-label="Selecione seu sexo">
-                        <option value="">Selecione</option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Feminino</option>
-                        <option value="O">Outro</option>
-                    </select>
-                    <div class="invalid-feedback">Por favor, selecione seu sexo.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="nomeMaterno" class="form-label">Nome Materno:</label>
-                    <input type="text" class="form-control" id="nomeMaterno" required
-                        placeholder="Nome completo da sua mãe">
-                    <div class="invalid-feedback">Por favor, insira o nome materno.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="cpf" class="form-label">CPF:</label>
-                    <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" required>
-                    <div class="invalid-feedback">CPF inválido.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">E-mail:</label>
-                    <input type="email" class="form-control" id="email" required placeholder="seu.email@exemplo.com">
-                    <div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="telefoneCelular" class="form-label">Telefone Celular:</label>
-                    <input type="text" class="form-control" id="telefoneCelular" placeholder="(+55)XX-XXXXXXXXX"
-                        required>
-                    <div class="invalid-feedback">Formato inválido. Ex: (+55)XX-XXXXXXXXX</div>
-                </div>
-                <div class="mb-3">
-                    <label for="telefoneFixo" class="form-label">Telefone Fixo:</label>
-                    <input type="text" class="form-control" id="telefoneFixo" placeholder="(+55)XX-XXXXXXXX" required>
-                    <div class="invalid-feedback">Formato inválido. Ex: (+55)XX-XXXXXXXX</div>
-                </div>
-                <div class="mb-3">
-                    <label for="cep" class="form-label">CEP:</label>
-                    <input type="text" class="form-control" id="cep" placeholder="00000-000" required>
-                    <div class="invalid-feedback">CEP inválido.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="endereco" class="form-label">Endereço Completo:</label>
-                    <input type="text" class="form-control" id="endereco" required readonly>
-                    <div class="invalid-feedback">Por favor, insira o endereço.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="login" class="form-label">Login:</label>
-                    <input type="text" class="form-control" id="login" required minlength="6" maxlength="6"
-                        placeholder="Login com 6 caracteres">
-                    <div class="invalid-feedback">O login deve ter exatamente 6 caracteres alfabéticos.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="senha" class="form-label">Senha:</label>
-                    <input type="password" class="form-control" id="senha" required minlength="8" maxlength="8"
-                        placeholder="Senha com 8 caracteres">
-                    <div class="invalid-feedback">A senha deve ter exatamente 8 caracteres.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="confirmaSenha" class="form-label">Confirmação da Senha:</label>
-                    <input type="password" class="form-control" id="confirmaSenha" required
-                        placeholder="Confirme sua senha">
-                    <div class="invalid-feedback">As senhas não coincidem.</div>
-                </div>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                    <button type="button" class="btn btn-secondary" id="limparCadastro">Limpar Tela</button>
-                </div>
-            </form>
+        <form id="cadastroForm" novalidate>
+            <div class="mb-3">
+                <label for="nomeCompleto" class="form-label">Nome Completo:</label>
+                <input type="text" class="form-control" id="nomeCompleto" required minlength="15" maxlength="80"
+                    placeholder="Seu nome completo">
+                <div class="invalid-feedback">O nome completo deve ter entre 15 e 80 caracteres alfabéticos.</div>
+            </div>
+            <div class="mb-3">
+                <label for="dataNascimento" class="form-label">Data de Nascimento:</label>
+                <input type="date" class="form-control" id="dataNascimento" required>
+                <div class="invalid-feedback">Por favor, insira sua data de nascimento.</div>
+            </div>
+            <div class="mb-3">
+                <label for="sexo" class="form-label">Sexo:</label>
+                <select class="form-select" id="sexo" required aria-label="Selecione seu sexo">
+                    <option value="">Selecione</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                    <option value="O">Outro</option>
+                </select>
+                <div class="invalid-feedback">Por favor, selecione seu sexo.</div>
+            </div>
+            <div class="mb-3">
+                <label for="nomeMaterno" class="form-label">Nome Materno:</label>
+                <input type="text" class="form-control" id="nomeMaterno" required
+                    placeholder="Nome completo da sua mãe">
+                <div class="invalid-feedback">Por favor, insira o nome materno.</div>
+            </div>
+            <div class="mb-3">
+                <label for="cpf" class="form-label">CPF:</label>
+                <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" required>
+                <div class="invalid-feedback">CPF inválido.</div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail:</label>
+                <input type="email" class="form-control" id="email" required placeholder="seu.email@exemplo.com">
+                <div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
+            </div>
+            <div class="mb-3">
+                <label for="telefoneCelular" class="form-label">Telefone Celular:</label>
+                <input type="text" class="form-control" id="telefoneCelular" placeholder="(+55)XX-XXXXXXXXX"
+                    required>
+                <div class="invalid-feedback">Formato inválido. Ex: (+55)XX-XXXXXXXXX</div>
+            </div>
+            <div class="mb-3">
+                <label for="telefoneFixo" class="form-label">Telefone Fixo:</label>
+                <input type="text" class="form-control" id="telefoneFixo" placeholder="(+55)XX-XXXXXXXX" required>
+                <div class="invalid-feedback">Formato inválido. Ex: (+55)XX-XXXXXXXX</div>
+            </div>
+            <div class="mb-3">
+                <label for="cep" class="form-label">CEP:</label>
+                <input type="text" class="form-control" id="cep" placeholder="00000-000" required>
+                <div class="invalid-feedback">CEP inválido.</div>
+            </div>
+            <div class="mb-3">
+                <label for="logradouro" class="form-label">Logradouro:</label>
+                <input type="text" class="form-control" id="logradouro" required readonly>
+                <div class="invalid-feedback">Por favor, insira o logradouro.</div>
+            </div>
+            <div class="mb-3">
+                <label for="numero" class="form-label">Número:</label>
+                <input type="text" class="form-control" id="numero" required>
+                <div class="invalid-feedback">Por favor, insira o número.</div>
+            </div>
+            <div class="mb-3">
+                <label for="complemento" class="form-label">Complemento:</label>
+                <input type="text" class="form-control" id="complemento">
+            </div>
+            <div class="mb-3">
+                <label for="bairro" class="form-label">Bairro:</label>
+                <input type="text" class="form-control" id="bairro" required readonly>
+                <div class="invalid-feedback">Por favor, insira o bairro.</div>
+            </div>
+            <div class="mb-3">
+                <label for="cidade" class="form-label">Cidade:</label>
+                <input type="text" class="form-control" id="cidade" required readonly>
+                <div class="invalid-feedback">Por favor, insira a cidade.</div>
+            </div>
+            <div class="mb-3">
+                <label for="estado" class="form-label">Estado:</label>
+                <input type="text" class="form-control" id="estado" required readonly>
+                <div class="invalid-feedback">Por favor, insira o estado.</div>
+            </div>
+            <div class="mb-3">
+                <label for="login" class="form-label">Login:</label>
+                <input type="text" class="form-control" id="login" required minlength="6" maxlength="6"
+                    placeholder="Login com 6 caracteres">
+                <div class="invalid-feedback">O login deve ter exatamente 6 caracteres alfabéticos.</div>
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha:</label>
+                <input type="password" class="form-control" id="senha" required minlength="8" maxlength="8"
+                    placeholder="Senha com 8 caracteres">
+                <div class="invalid-feedback">A senha deve ter exatamente 8 caracteres.</div>
+            </div>
+            <div class="mb-3">
+                <label for="confirmaSenha" class="form-label">Confirmação da Senha:</label>
+                <input type="password" class="form-control" id="confirmaSenha" required
+                    placeholder="Confirme sua senha">
+                <div class="invalid-feedback">As senhas não coincidem.</div>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="button" class="btn btn-secondary" id="limparCadastro">Limpar Tela</button>
+            </div>
+        </form>
 
-
-            <!--mensagens de feedback -->
-            <div class="toast-container position-fixed bottom-0 end-0 p-3">
-                <div id="feedbackToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
-                        <strong class="me-auto">Notificação</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body"></div>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="feedbackToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Notificação</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
+                <div class="toast-body"></div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <p>&copy; 2025 PET CONECTA - Conectando Pets e Amantes de Animais</p>
-                <div class="footer-contact">
-                    <p>Entre em contato:</p>
-                    <p>Email: contato@petconecta.com.br</p>
-                    <p>Telefone: (XX) XXXXX-XXXX</p>
-                </div>
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <p>&copy; 2025 PET CONECTA - Conectando Pets e Amantes de Animais</p>
+            <div class="footer-contact">
+                <p>Entre em contato:</p>
+                <p>Email: contato@petconecta.com.br</p>
+                <p>Telefone: (XX) XXXXX-XXXX</p>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+<script src="javaScript/main.js"></script>
 
+<script src="javaScript/validacoes.js"></script>
 
+<script>
+    // Função para exibir mensagens de feedback utilizando o componente Toast do Bootstrap
+    function showFeedback(message, type) {
+        const toastElement = document.getElementById('feedbackToast');
+        const toastBody = toastElement.querySelector('.toast-body');
+        toastBody.textContent = message;
+        toastElement.classList.remove('text-bg-success', 'text-bg-danger', 'text-bg-warning', 'text-bg-info');
+        toastElement.classList.add(`text-bg-${type}`);
+        const toast = new bootstrap.Toast(toastElement);
+        toast.show();
+    }
 
+    // evento de submissão do formulário de cadastro
+    document.getElementById('cadastroForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+        const form = event.target;
+        let isValid = true; //controlar a validade geral do formulário
 
+        // Limpa as classes de validação e mensagens de feedback
+        form.querySelectorAll('.form-control').forEach(input => {
+            input.classList.remove('is-invalid', 'is-valid');
+        });
+        form.querySelectorAll('.invalid-feedback').forEach(feedback => {
+            feedback.textContent = '';
+        });
 
-    <!-- Bootstrap Bundle com Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JavaScript Personalizado para funcionalidades gerais e de login/logout -->
-    <script src="javaScript/main.js"></script>
-
-    <!-- JavaScript Personalizado para funções de validação (ex: CPF) -->
-    <script src="javaScript/validacoes.js"></script>
-
-    <!-- JavaScript Personalizado para funcionalidades de acessibilidade -->
-    <script src="javaScript/acessibilidade.js"></script>
-
-    <script>
-        // Função para exibir mensagens de feedback utilizando o componente Toast do Bootstrap
-        function showFeedback(message, type) {
-            const toastElement = document.getElementById('feedbackToast');
-            const toastBody = toastElement.querySelector('.toast-body');
-            toastBody.textContent = message;
-            toastElement.classList.remove('text-bg-success', 'text-bg-danger', 'text-bg-warning', 'text-bg-info');
-            toastElement.classList.add(`text-bg-${type}`);
-            const toast = new bootstrap.Toast(toastElement);
-            toast.show();
+        // Validação de Nome Completo
+        const nomeCompleto = document.getElementById('nomeCompleto');
+        // Verifica se o nome tem entre 15 e 80 caracteres
+        if (nomeCompleto.value.length < 15 || nomeCompleto.value.length > 80 || !/^[a-zA-Z\sÀ-ú]+$/.test(nomeCompleto.value)) {
+            nomeCompleto.classList.add('is-invalid');
+            nomeCompleto.nextElementSibling.textContent = 'O nome completo deve ter entre 15 e 80 caracteres alfabéticos.';
+            isValid = false;
+        } else {
+            nomeCompleto.classList.add('is-valid');
         }
 
-        // evento de submissão do formulário de cadastro
-        document.getElementById('cadastroForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Impede o envio padrão do formulário
-            const form = event.target;
-            let isValid = true; //controlar a validade geral do formulário
+        // verificar se a data foi preenchida
+        const dataNascimento = document.getElementById('dataNascimento');
+        if (!dataNascimento.value) {
+            dataNascimento.classList.add('is-invalid');
+            dataNascimento.nextElementSibling.textContent = 'Por favor, insira sua data de nascimento.';
+            isValid = false;
+        } else {
+            dataNascimento.classList.add('is-valid');
+        }
 
-            // Limpa as classes de validação e mensagens de feedback
-            form.querySelectorAll('.form-control').forEach(input => {
-                input.classList.remove('is-invalid', 'is-valid');
-            });
-            form.querySelectorAll('.invalid-feedback').forEach(feedback => {
-                feedback.textContent = '';
-            });
+        // Validação de Sexo
+        const sexo = document.getElementById('sexo');
+        if (!sexo.value) {
+            sexo.classList.add('is-invalid');
+            sexo.nextElementSibling.textContent = 'Por favor, selecione seu sexo.';
+            isValid = false;
+        } else {
+            sexo.classList.add('is-valid');
+        }
 
-            // Validação de Nome Completo
-            const nomeCompleto = document.getElementById('nomeCompleto');
-            // Verifica se o nome tem entre 15 e 80 caracteres
-            if (nomeCompleto.value.length < 15 || nomeCompleto.value.length > 80 || !/^[a-zA-Z\sÀ-ú]+$/.test(nomeCompleto.value)) {
-                nomeCompleto.classList.add('is-invalid');
-                nomeCompleto.nextElementSibling.textContent = 'O nome completo deve ter entre 15 e 80 caracteres alfabéticos.';
-                isValid = false;
-            } else {
-                nomeCompleto.classList.add('is-valid');
-            }
+        // Validação de Nome Materno
+        const nomeMaterno = document.getElementById('nomeMaterno');
+        if (nomeMaterno.value.trim() === '') {
+            nomeMaterno.classList.add('is-invalid');
+            nomeMaterno.nextElementSibling.textContent = 'Por favor, insira o nome materno.';
+            isValid = false;
+        } else {
+            nomeMaterno.classList.add('is-valid');
+        }
 
-            // verificar se a data foi preenchida 
-            const dataNascimento = document.getElementById('dataNascimento');
-            if (!dataNascimento.value) {
-                dataNascimento.classList.add('is-invalid');
-                dataNascimento.nextElementSibling.textContent = 'Por favor, insira sua data de nascimento.';
-                isValid = false;
-            } else {
-                dataNascimento.classList.add('is-valid');
-            }
+        // Validação de CPF (utiliza a função 'validarCPF' do 'validacoes.js')
+        const cpf = document.getElementById('cpf');
+        if (!validarCPF(cpf.value)) {
+            cpf.classList.add('is-invalid');
+            cpf.nextElementSibling.textContent = 'CPF inválido.';
+            isValid = false;
+        } else {
+            cpf.classList.add('is-valid');
+        }
 
-            // Validação de Sexo
-            const sexo = document.getElementById('sexo');
-            if (!sexo.value) {
-                sexo.classList.add('is-invalid');
-                sexo.nextElementSibling.textContent = 'Por favor, selecione seu sexo.';
-                isValid = false;
-            } else {
-                sexo.classList.add('is-valid');
-            }
+        // Validação de E-mail (formato básico)
+        const email = document.getElementById('email');
+        if (!email.value.includes('@') || !email.value.includes('.')) {
+            email.classList.add('is-invalid');
+            email.nextElementSibling.textContent = 'Por favor, insira um e-mail válido.';
+            isValid = false;
+        } else {
+            email.classList.add('is-valid');
+        }
 
-            // Validação de Nome Materno
-            const nomeMaterno = document.getElementById('nomeMaterno');
-            if (nomeMaterno.value.trim() === '') {
-                nomeMaterno.classList.add('is-invalid');
-                nomeMaterno.nextElementSibling.textContent = 'Por favor, insira o nome materno.';
-                isValid = false;
-            } else {
-                nomeMaterno.classList.add('is-valid');
-            }
+        // Validação de Telefone Celular
+        const telefoneCelular = document.getElementById('telefoneCelular');
+        const regexCelular = /^\(\+55\)\d{2}-\d{8,9}$/;
+        if (!regexCelular.test(telefoneCelular.value)) {
+            telefoneCelular.classList.add('is-invalid');
+            telefoneCelular.nextElementSibling.textContent = 'Formato inválido. Ex: (+55)XX-XXXXXXXXX';
+            isValid = false;
+        } else {
+            telefoneCelular.classList.add('is-valid');
+        }
 
-            // Validação de CPF (utiliza a função 'validarCPF' do 'validacoes.js')
-            const cpf = document.getElementById('cpf');
-            if (!validarCPF(cpf.value)) {
-                cpf.classList.add('is-invalid');
-                cpf.nextElementSibling.textContent = 'CPF inválido.';
-                isValid = false;
-            } else {
-                cpf.classList.add('is-valid');
-            }
+        // Validação de Telefone Fixo
+        const telefoneFixo = document.getElementById('telefoneFixo');
+        const regexFixo = /^\(\+55\)\d{2}-\d{8}$/;
+        if (!regexFixo.test(telefoneFixo.value)) {
+            telefoneFixo.classList.add('is-invalid');
+            telefoneFixo.nextElementSibling.textContent = 'Formato inválido. Ex: (+55)XX-XXXXXXXX';
+            isValid = false;
+        } else {
+            telefoneFixo.classList.add('is-valid');
+        }
 
-            // Validação de E-mail (formato básico)
-            const email = document.getElementById('email');
-            if (!email.value.includes('@') || !email.value.includes('.')) {
-                email.classList.add('is-invalid');
-                email.nextElementSibling.textContent = 'Por favor, insira um e-mail válido.';
-                isValid = false;
-            } else {
-                email.classList.add('is-valid');
-            }
+        // Validação de Logradouro
+        const logradouro = document.getElementById('logradouro');
+        if (logradouro.value.trim() === '') {
+            logradouro.classList.add('is-invalid');
+            logradouro.nextElementSibling.textContent = 'Por favor, insira o logradouro.';
+            isValid = false;
+        } else {
+            logradouro.classList.add('is-valid');
+        }
 
-            // Validação de Telefone Celular 
-            const telefoneCelular = document.getElementById('telefoneCelular');
-            const regexCelular = /^\(\+55\)\d{2}-\d{8,9}$/;
-            if (!regexCelular.test(telefoneCelular.value)) {
-                telefoneCelular.classList.add('is-invalid');
-                telefoneCelular.nextElementSibling.textContent = 'Formato inválido. Ex: (+55)XX-XXXXXXXXX';
-                isValid = false;
-            } else {
-                telefoneCelular.classList.add('is-valid');
-            }
+        // Validação de Número
+        const numero = document.getElementById('numero');
+        if (numero.value.trim() === '') {
+            numero.classList.add('is-invalid');
+            numero.nextElementSibling.textContent = 'Por favor, insira o número.';
+            isValid = false;
+        } else {
+            numero.classList.add('is-valid');
+        }
 
-            // Validação de Telefone Fixo
-            const telefoneFixo = document.getElementById('telefoneFixo');
-            const regexFixo = /^\(\+55\)\d{2}-\d{8}$/;
-            if (!regexFixo.test(telefoneFixo.value)) {
-                telefoneFixo.classList.add('is-invalid');
-                telefoneFixo.nextElementSibling.textContent = 'Formato inválido. Ex: (+55)XX-XXXXXXXX';
-                isValid = false;
-            } else {
-                telefoneFixo.classList.add('is-valid');
-            }
+        // Validação de Bairro
+        const bairro = document.getElementById('bairro');
+        if (bairro.value.trim() === '') {
+            bairro.classList.add('is-invalid');
+            bairro.nextElementSibling.textContent = 'Por favor, insira o bairro.';
+            isValid = false;
+        } else {
+            bairro.classList.add('is-valid');
+        }
 
-            // Validação de Endereço Completo
-            const endereco = document.getElementById('endereco');
-            if (endereco.value.trim() === '') {
-                endereco.classList.add('is-invalid');
-                endereco.nextElementSibling.textContent = 'Por favor, insira o endereço.';
-                isValid = false;
-            } else {
-                endereco.classList.add('is-valid');
-            }
+        // Validação de Cidade
+        const cidade = document.getElementById('cidade');
+        if (cidade.value.trim() === '') {
+            cidade.classList.add('is-invalid');
+            cidade.nextElementSibling.textContent = 'Por favor, insira a cidade.';
+            isValid = false;
+        } else {
+            cidade.classList.add('is-valid');
+        }
 
-            // Validação de Login 
-            const login = document.getElementById('login');
-            if (login.value.length !== 6 || !/^[a-zA-Z]+$/.test(login.value)) {
-                login.classList.add('is-invalid');
-                login.nextElementSibling.textContent = 'O login deve ter exatamente 6 caracteres alfabéticos.';
-                isValid = false;
-            } else {
-                login.classList.add('is-valid');
-            }
+        // Validação de Estado
+        const estado = document.getElementById('estado');
+        if (estado.value.trim() === '') {
+            estado.classList.add('is-invalid');
+            estado.nextElementSibling.textContent = 'Por favor, insira o estado.';
+            isValid = false;
+        } else {
+            estado.classList.add('is-valid');
+        }
 
-            // Validação de Senha 
-            const senha = document.getElementById('senha');
-            if (senha.value.length !== 8) {
-                senha.classList.add('is-invalid');
-                senha.nextElementSibling.textContent = 'A senha deve ter exatamente 8 caracteres.';
-                isValid = false;
-            } else {
-                senha.classList.add('is-valid');
-            }
+        // Validação de Login
+        const login = document.getElementById('login');
+        if (login.value.length !== 6 || !/^[a-zA-Z]+$/.test(login.value)) {
+            login.classList.add('is-invalid');
+            login.nextElementSibling.textContent = 'O login deve ter exatamente 6 caracteres alfabéticos.';
+            isValid = false;
+        } else {
+            login.classList.add('is-valid');
+        }
 
-            // Validação de Confirmação da Senha
-            const confirmaSenha = document.getElementById('confirmaSenha');
-            if (confirmaSenha.value !== senha.value) {
-                confirmaSenha.classList.add('is-invalid');
-                confirmaSenha.nextElementSibling.textContent = 'As senhas não coincidem.';
-                isValid = false;
-            } else {
-                confirmaSenha.classList.add('is-valid');
-            }
+        // Validação de Senha
+        const senha = document.getElementById('senha');
+        if (senha.value.length !== 8) {
+            senha.classList.add('is-invalid');
+            senha.nextElementSibling.textContent = 'A senha deve ter exatamente 8 caracteres.';
+            isValid = false;
+        } else {
+            senha.classList.add('is-valid');
+        }
 
-            // Se todas as validações passarem
-            if (isValid) {
-                showFeedback('Cadastro realizado com sucesso! Redirecionando para o login...', 'success');
-                // Armazena login e senha no localStorage para simular um registro temporário
-                localStorage.setItem('tempLogin', login.value);
-                localStorage.setItem('tempSenha', senha.value);
-                // Redireciona para a tela de login após um pequeno atraso
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 2000); // Redireciona após 2 segundos
-            } else {
-                showFeedback('Por favor, corrija os erros no formulário.', 'danger');
-            }
+        // Validação de Confirmação da Senha
+        const confirmaSenha = document.getElementById('confirmaSenha');
+        if (confirmaSenha.value !== senha.value) {
+            confirmaSenha.classList.add('is-invalid');
+            confirmaSenha.nextElementSibling.textContent = 'As senhas não coincidem.';
+            isValid = false;
+        } else {
+            confirmaSenha.classList.add('is-valid');
+        }
+
+        // Se todas as validações passarem
+        if (isValid) {
+            showFeedback('Cadastro realizado com sucesso! Redirecionando para o login...', 'success');
+            // Armazena login e senha no localStorage para simular um registro temporário
+            localStorage.setItem('tempLogin', login.value);
+            localStorage.setItem('tempSenha', senha.value);
+            // Redireciona para a tela de login após um pequeno atraso
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2000); // Redireciona após 2 segundos
+        } else {
+            showFeedback('Por favor, corrija os erros no formulário.', 'danger');
+        }
+    });
+
+    // botão Limpar Tela
+    document.getElementById('limparCadastro').addEventListener('click', function () {
+        document.getElementById('cadastroForm').reset();
+        // Remove as classes de validação de todos os campos
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.classList.remove('is-invalid', 'is-valid');
         });
+        showFeedback('Formulário limpo.', 'info');
+    });
 
-        // botão Limpar Tela
-        document.getElementById('limparCadastro').addEventListener('click', function () {
-            document.getElementById('cadastroForm').reset();
-            // Remove as classes de validação de todos os campos
-            document.querySelectorAll('.form-control').forEach(input => {
-                input.classList.remove('is-invalid', 'is-valid');
-            });
-            showFeedback('Formulário limpo.', 'info');
-        });
+    //preenchimento automático de endereço por CEP (API ViaCEP)
+    document.getElementById('cep').addEventListener('blur', async function () {
+        const cep = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos do CEP
+        const logradouroInput = document.getElementById('logradouro');
+        const bairroInput = document.getElementById('bairro');
+        const cidadeInput = document.getElementById('cidade');
+        const estadoInput = document.getElementById('estado');
+        const numeroInput = document.getElementById('numero');
 
-        //preenchimento automático de endereço por CEP (API ViaCEP)
-        document.getElementById('cep').addEventListener('blur', async function () {
-            const cep = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos do CEP
-            const enderecoInput = document.getElementById('endereco');
+        // Clear previous address data and validation
+        logradouroInput.value = '';
+        bairroInput.value = '';
+        cidadeInput.value = '';
+        estadoInput.value = '';
+        logradouroInput.classList.remove('is-invalid', 'is-valid');
+        bairroInput.classList.remove('is-invalid', 'is-valid');
+        cidadeInput.classList.remove('is-invalid', 'is-valid');
+        estadoInput.classList.remove('is-invalid', 'is-valid');
+        numeroInput.classList.remove('is-invalid', 'is-valid');
+        numeroInput.value = '';
 
-            if (cep.length === 8) { // Verifica se o CEP tem 8 dígitos
-                try {
-                    // Faz uma requisição à API ViaCEP
-                    const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-                    const data = await response.json();
 
-                    if (!data.erro) {
-                        // Preenche o campo de endereço com os dados retornados
-                        enderecoInput.value = `${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`;
-                        enderecoInput.classList.remove('is-invalid');
-                        enderecoInput.classList.add('is-valid');
-                        enderecoInput.readOnly = true; // Mantém o campo somente leitura
-                    } else {
-                        // Se o CEP não for encontrado
-                        enderecoInput.value = ''; // Limpa o campo
-                        enderecoInput.classList.add('is-invalid');
-                        enderecoInput.nextElementSibling.textContent = 'CEP não encontrado. Por favor, preença o endereço manualmente.';
-                        enderecoInput.readOnly = false; // Habilita o preenchimento manual
-                    }
-                } catch (error) {
-                    // Erro na API
-                    console.error('Erro ao buscar CEP:', error);
-                    enderecoInput.value = '';
-                    enderecoInput.classList.add('is-invalid');
-                    enderecoInput.nextElementSibling.textContent = 'Erro ao buscar CEP. Por favor, preencha o endereço manualmente.';
-                    enderecoInput.readOnly = false; // Habilita o preenchimento manual
+        if (cep.length === 8) { // Verifica se o CEP tem 8 dígitos
+            try {
+                // Faz uma requisição à API ViaCEP
+                const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                const data = await response.json();
+
+                if (!data.erro) {
+                    // Preenche os campos de endereço com os dados retornados
+                    logradouroInput.value = data.logradouro;
+                    bairroInput.value = data.bairro;
+                    cidadeInput.value = data.localidade;
+                    estadoInput.value = data.uf;
+
+                    logradouroInput.classList.add('is-valid');
+                    bairroInput.classList.add('is-valid');
+                    cidadeInput.classList.add('is-valid');
+                    estadoInput.classList.add('is-valid');
+
+                    logradouroInput.readOnly = true; // Mantém o campo somente leitura
+                    bairroInput.readOnly = true;
+                    cidadeInput.readOnly = true;
+                    estadoInput.readOnly = true;
+                    numeroInput.focus(); // Focus on the number field
+                } else {
+                    // Se o CEP não for encontrado
+                    logradouroInput.value = '';
+                    bairroInput.value = '';
+                    cidadeInput.value = '';
+                    estadoInput.value = '';
+
+                    logradouroInput.classList.add('is-invalid');
+                    bairroInput.classList.add('is-invalid');
+                    cidadeInput.classList.add('is-invalid');
+                    estadoInput.classList.add('is-invalid');
+
+                    logradouroInput.nextElementSibling.textContent = 'CEP não encontrado. Preencha manualmente.';
+                    bairroInput.nextElementSibling.textContent = 'CEP não encontrado. Preencha manualmente.';
+                    cidadeInput.nextElementSibling.textContent = 'CEP não encontrado. Preencha manualmente.';
+                    estadoInput.nextElementSibling.textContent = 'CEP não encontrado. Preencha manualmente.';
+
+                    logradouroInput.readOnly = false; // Habilita o preenchimento manual
+                    bairroInput.readOnly = false;
+                    cidadeInput.readOnly = false;
+                    estadoInput.readOnly = false;
                 }
-            } else {
-                // Se o CEP tiver um número de dígitos incorreto ou estiver vazio
-                enderecoInput.value = '';
-                enderecoInput.classList.remove('is-valid');
-                enderecoInput.readOnly = true;
+            } catch (error) {
+                // Erro na API
+                console.error('Erro ao buscar CEP:', error);
+                logradouroInput.value = '';
+                bairroInput.value = '';
+                cidadeInput.value = '';
+                estadoInput.value = '';
+
+                logradouroInput.classList.add('is-invalid');
+                bairroInput.classList.add('is-invalid');
+                cidadeInput.classList.add('is-invalid');
+                estadoInput.classList.add('is-invalid');
+
+                logradouroInput.nextElementSibling.textContent = 'Erro ao buscar CEP. Preencha manualmente.';
+                bairroInput.nextElementSibling.textContent = 'Erro ao buscar CEP. Preencha manualmente.';
+                cidadeInput.nextElementSibling.textContent = 'Erro ao buscar CEP. Preencha manualmente.';
+                estadoInput.nextElementSibling.textContent = 'Erro ao buscar CEP. Preencha manualmente.';
+
+                logradouroInput.readOnly = false; // Habilita o preenchimento manual
+                bairroInput.readOnly = false;
+                cidadeInput.readOnly = false;
+                estadoInput.readOnly = false;
             }
-        });
+        } else {
+            // Se o CEP tiver um número de dígitos incorreto ou estiver vazio
+            logradouroInput.value = '';
+            bairroInput.value = '';
+            cidadeInput.value = '';
+            estadoInput.value = '';
+
+            logradouroInput.classList.remove('is-valid');
+            bairroInput.classList.remove('is-valid');
+            cidadeInput.classList.remove('is-valid');
+            estadoInput.classList.remove('is-valid');
+
+            logradouroInput.readOnly = true;
+            bairroInput.readOnly = true;
+            cidadeInput.readOnly = true;
+            estadoInput.readOnly = true;
+        }
+    });
+</script>
     </script>
+
+    <script src="javaScript/darkmodee.js"></script>
 </body>
 
 </html>

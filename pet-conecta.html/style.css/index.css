@@ -5,7 +5,6 @@
 }
 
 
-
 header{
     margin: -5px; /*serve para tirar a margem superior do body acima do header*/
     font-size: 20px; /*Serve para controlar o tamanho do texto*/
@@ -56,18 +55,20 @@ a img:hover{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px); 
 }
-nav button:hover{
+#btn-login-cadastro:hover{
     cursor: pointer;
     color: cyan;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px); 
 }
-nav button{
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 5px ;
-    border-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    font-size: 16px;     
+
+#btn-login-cadastro{
+    background-color: rgba(0, 113, 128,0.1);
+    border:none;
+    border-color: rgb(0, 113, 128);
+    color: white;   
+    font-size: 16px; 
+    padding: 0px;
 }
 
 img#topo-img {
@@ -76,20 +77,6 @@ img#topo-img {
     object-fit: cover; 
     margin-top: 80px;
     transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-
-/* Estilos para o modo claro */
-body {
-    background-color: white;
-    color: black;
-    margin: 0;
-}
-
-/* Estilos para o modo escuro */
-body.dark-mode {
-    background-color: #000000;
-    color: white;
 }
 
 
@@ -228,10 +215,6 @@ body.dark-mode {
 
 
 
-
-
-
-
 footer{
     background-image: linear-gradient(rgb(38, 121, 121), rgb(0, 113, 128), rgb(75, 151, 98));
     color: black;
@@ -239,4 +222,182 @@ footer{
     padding: 20px;
     position: relative;
 }
+
+
+
+
+
+/* Telas menores que 1024px (tablets e notebooks pequenos) */
+@media (max-width: 1024px) {
+    nav ul {
+        gap: 20px;
+        margin-left: 10px;
+    }
+
+    .adoção {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .sobrenos {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .doacao {
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .bordaimg {
+        display: none; /* Remove a borda decorativa se necessário */
+    }
+
+    .imgsobrenos img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+/* Telas menores que 768px (celulares e tablets em modo retrato) */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    nav li {
+        margin: 10px 0;
+    }
+
+    .login-cadastro {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    #topo-img {
+        height: 200px;
+    }
+
+    #img1, #img2, #img3, #img4 {
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .adoção {
+        padding: 20px 10px;
+    }
+
+    .sobrenos {
+        padding: 20px;
+    }
+
+    #btnsobrenos {
+        width: 100%;
+        max-width: 200px;
+        margin-top: 20px;
+    }
+}
+
+
+/* Telas menores que 480px (celulares pequenos) */
+@media (max-width: 480px) {
+    .menu_superior a.logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    #btn-login-cadastro {
+        font-size: 14px;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .sobrenosh1 {
+        font-size: 1.2em;
+    }
+
+    .doacao p {
+        font-size: 16px;
+    }
+
+    footer {
+        font-size: 14px;
+        padding: 15px;
+    }
+}
+
+
+/*----------------------------------------BOTAO HAMBURGUER-----------------------------------*/
+
+@media (max-width: 768px) {
+    nav.menu_superior {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+        position: relative;
+    }
+
+    nav.menu_superior > ul,
+    .login-cadastro,
+    #toggle-dark-mode,
+    #user-info {
+        display: none;
+        width: 100%;
+    }
+
+    nav.menu_superior.active > ul,
+    nav.menu_superior.active .login-cadastro,
+    nav.menu_superior.active #toggle-dark-mode,
+    nav.menu_superior.active #user-info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    nav.menu_superior ul {
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 0;
+    }
+
+    nav.menu_superior ul li {
+        margin: 0;
+    }
+
+    .login-cadastro a button,
+    #toggle-dark-mode,
+    #logout-btn {
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    /* Botão hamburguer - você deve ter o JS ativando a classe .active no nav */
+    .menu-toggle {
+        display: block;
+        font-size: 28px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        align-self: flex-end;
+        margin-top: -40px;
+    }
+}
+
 

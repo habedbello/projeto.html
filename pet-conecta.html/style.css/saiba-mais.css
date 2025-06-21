@@ -3,6 +3,15 @@
   padding: 0;
   box-sizing: border-box;  
 }
+ 
+#toggle-dark-mode{
+    padding: 2px 10px;
+    border-radius: 6px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.0);
+    font-size: 20pxpx;
+}
+
 header{
     margin: -5px; /*serve para tirar a margem superior do body acima do header*/
     font-size: 20px; /*Serve para controlar o tamanho do texto*/
@@ -52,18 +61,20 @@ a img{
     width: 80px; /*é usada para definir a largura da área de conteúdo de um elemento HTML*/
     height: 80px; /* é usada para definir a altura de um elemento HTML*/
 }
-nav button:hover{
+#btn-login-cadastro:hover{
     cursor: pointer;
     color: cyan;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px); 
 }
-nav button{
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 5px ;
-    border-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    font-size: 16px;     
+
+#btn-login-cadastro{
+    background-color: rgba(0, 113, 128,0.1);
+    border:none;
+    border-color: rgb(0, 113, 128);
+    color: white;   
+    font-size: 16px; 
+    padding: 0px;
 }
 
 /* Estilização geral para a seção "Sobre Nós" */
@@ -266,15 +277,62 @@ footer{
   }
 }
 
-/* Estilos para o modo claro */
-body {
-    background-color: white;
-    color: black;
-    margin: 0;
+
+/*----------------------------------------BOTAO HAMBURGUER-----------------------------------*/
+
+/* Escondendo o menu e exibindo o ícone do menu hamburguer em telas menores */
+@media (max-width: 768px) {
+    /* Esconde o menu padrão em telas pequenas */
+    nav ul {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+    }
+
+    /* Exibe o botão hamburguer */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    /* Torna o menu visível quando o menu-toggle for clicado */
+    nav.active ul {
+        display: flex;
+    }
+
+    /* Ajustes para os itens do menu */
+    nav ul li {
+        width: 100%;
+        padding: 10px 20px;
+        text-align: left;
+    }
+
+    /* Ajuste de altura e largura para o botão de login e cadastro em telas pequenas */
+    .login-cadastro {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    /* Ajuste do botão de dark mode */
+    #toggle-dark-mode {
+        margin-top: 10px;
+        padding: 6px 10px;
+    }
+
+    /* Exibição do menu de navegação e dark mode quando ativo */
+    nav.active #toggle-dark-mode,
+    nav.active .login-cadastro {
+        display: flex;
+    }
 }
 
-/* Estilos para o modo escuro */
-body.dark-mode {
-    background-color: #000000;
-    color: white;
-}
+

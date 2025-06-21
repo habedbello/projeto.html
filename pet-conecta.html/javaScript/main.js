@@ -49,7 +49,59 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     
+    // Chama a função checkLoginStatus assim que o DOM é completamente carregado
+    checkLoginStatus();
+});
+
+
+/*----------- DESAPARECER OS BOTÕES LOGIN/CADSTRO AO ESTAR LOGADO-----------------------------*/
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona os elementos HTML relevantes
+    const userInfoDiv = document.getElementById('user-info'); // Div que exibe as informações do usuário
+    const loggedInUserSpan = document.getElementById('logged-in-user'); // Span que exibe o nome do usuário
+    const logoutBtn = document.getElementById('logout-btn'); // Botão de logout
+    const loginCadastroDiv = document.getElementById('cadastro-login'); // Div que contém os botões de login e cadastro
+
+    // Função para verificar o status de login do usuário
+    function checkLoginStatus() {
+        // Tenta obter o nome do usuário logado do localStorage
+        const loggedInUser = localStorage.getItem('loggedInUser');
+
+        if (loggedInUser) {
+            // Se houver um usuário logado:
+            userInfoDiv.classList.remove('d-none'); // Exibe a div de informações do usuário
+            loggedInUserSpan.textContent = `Olá, ${loggedInUser}!`; // Define o texto de boas-vindas
+            loginCadastroDiv.classList.add('d-none'); // Oculta a div de login e cadastro
+        } else {
+            // Se não houver usuário logado:
+            userInfoDiv.classList.add('d-none'); // Oculta a div de informações do usuário
+            loggedInUserSpan.textContent = ''; // Limpa o texto de boas-vindas
+            loginCadastroDiv.classList.remove('d-none'); // Exibe a div de login e cadastro
+        }
+    }
+
+    // Adiciona um event listener para o botão de logout
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+            // Remove o status de login do localStorage
+            localStorage.removeItem('loggedInUser');
+            // Remove as credenciais temporárias (login e senha) também
+            localStorage.removeItem('tempLogin');
+            localStorage.removeItem('tempSenha');
+            // Exibe uma mensagem de desconexão (opcional)
+            alert('Você foi desconectado.'); 
+            // Redireciona o usuário para a página inicial
+            window.location.href = 'index.html'; 
+            // Re-checa o status de login para atualizar a interface imediatamente
+            checkLoginStatus(); 
+        });
+    }
 
     // Chama a função checkLoginStatus assim que o DOM é completamente carregado
     checkLoginStatus();
 });
+
+
+
