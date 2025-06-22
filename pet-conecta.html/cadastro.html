@@ -137,14 +137,14 @@
             </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">Senha:</label>
-                <input type="password" class="form-control" id="senha" required minlength="8" maxlength="8"
+                <input type="password" class="form-control" id="senha" required
                     placeholder="Senha com 8 caracteres">
                 <div class="invalid-feedback">A senha deve ter exatamente 8 caracteres.</div>
             </div>
             <div class="mb-3">
                 <label for="confirmaSenha" class="form-label" >Confirmação da Senha:</label>
                 <input type="password" class="form-control" id="confirmaSenha" required
-                    placeholder="Confirme sua senha" minlength="8" maxlength="8">
+                    placeholder="Confirme sua senha">
                 <div class="invalid-feedback">As senhas não coincidem.</div>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -354,24 +354,38 @@
         }
 
         // Validação de Senha
-        const senha = document.getElementById('senha');
-        if (senha.value.length !== 8) {
-            senha.classList.add('is-invalid');
-            senha.nextElementSibling.textContent = 'A senha deve ter exatamente 8 caracteres.';
-            isValid = false;
-        } else {
-            senha.classList.add('is-valid');
-        }
+const senha = document.getElementById('senha');
+const regexAlfabetico = /^[a-zA-Z]{8}$/; // Expressão regular para 8 caracteres alfabéticos
 
-        // Validação de Confirmação da Senha
-        const confirmaSenha = document.getElementById('confirmaSenha');
-        if (confirmaSenha.value !== senha.value) {
-            confirmaSenha.classList.add('is-invalid');
-            confirmaSenha.nextElementSibling.textContent = 'As senhas não coincidem.';
-            isValid = false;
-        } else {
-            confirmaSenha.classList.add('is-valid');
-        }
+if (!regexAlfabetico.test(senha.value)) {
+    senha.classList.remove('is-valid'); // Garante que a classe de válido seja removida
+    senha.classList.add('is-invalid');
+    senha.nextElementSibling.textContent = 'A senha deve ter exatamente 8 caracteres alfabéticos.';
+    isValid = false;
+} else {
+    senha.classList.remove('is-invalid'); // Garante que a classe de inválido seja removida
+    senha.classList.add('is-valid');
+    senha.nextElementSibling.textContent = ''; // Limpa a mensagem de erro
+}
+
+// Validação de Confirmação da Senha
+const confirmaSenha = document.getElementById('confirmaSenha');
+
+if (confirmaSenha.value !== senha.value) {
+    confirmaSenha.classList.remove('is-valid');
+    confirmaSenha.classList.add('is-invalid');
+    confirmaSenha.nextElementSibling.textContent = 'As senhas não coincidem.';
+    isValid = false;
+} else if (!regexAlfabetico.test(confirmaSenha.value)) { // Adicionado para verificar o formato também na confirmação
+    confirmaSenha.classList.remove('is-valid');
+    confirmaSenha.classList.add('is-invalid');
+    confirmaSenha.nextElementSibling.textContent = 'A confirmação de senha deve ter exatamente 8 caracteres alfabéticos.';
+    isValid = false;
+} else {
+    confirmaSenha.classList.remove('is-invalid');
+    confirmaSenha.classList.add('is-valid');
+    confirmaSenha.nextElementSibling.textContent = '';
+}
 
         // Se todas as validações passarem
         if (isValid) {

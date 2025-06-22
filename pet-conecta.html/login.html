@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -8,25 +9,26 @@
     <link rel="stylesheet" href="style.css/login.css">
     <link rel="stylesheet" href="style.css/darkmode.css">
 </head>
-<body>
-     <header>
-        <nav class="menu_superior">
-            <a  href="index.html"><img src="img/casa-de-animais.png"></a>
-            <a href="index.html"  id="navh1"><em>PET CONECTA</em></a>
 
-         
+<body>
+    <header>
+        <nav class="menu_superior">
+            <a href="index.html"><img src="img/casa-de-animais.png"></a>
+            <a href="index.html" id="navh1"><em>PET CONECTA</em></a>
+
+
             <ul>
-                <li ><a href="index.html">Home</a></li>
-                <li ><a href="bemestar.html">Bem-Estar Animal</a></li>
-                <li ><a href="adoção.html">Adoção/Doação</a></li>
-                <li ><a href="saiba-mais.html">Sobre nós</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bemestar.html">Bem-Estar Animal</a></li>
+                <li><a href="adoção.html">Adoção/Doação</a></li>
+                <li><a href="saiba-mais.html">Sobre nós</a></li>
             </ul>
             <div class="login-cadastro" id="cadastro-login">
-                <a href="login.html"><button id="btn-login-cadastro" >Login</button></a>
-                <a href="cadastro.html"><button id="btn-login-cadastro" >Cadastro</button></a>
+                <a href="login.html"><button id="btn-login-cadastro">Login</button></a>
+                <a href="cadastro.html"><button id="btn-login-cadastro">Cadastro</button></a>
             </div>
 
-            <button id="toggle-dark-mode" > ◐ </button>
+            <button id="toggle-dark-mode"> ◐ </button>
 
             <!-- Informações do usuário logado (inicialmente ocultas) -->
             <div id="user-info" class="d-none">
@@ -42,12 +44,12 @@
             <form id="loginForm" novalidate>
                 <div class="mb-3">
                     <label for="loginUsername" class="form-label">Login:</label>
-                    <input type="text" class="form-control" id="loginUsername" required placeholder="Seu login">
+                    <input type="text" class="form-control" id="loginUsername" required placeholder="Seu login" minlength="6" maxlength="6">
                     <div class="invalid-feedback">Por favor, insira seu login.</div>
                 </div>
                 <div class="mb-3">
                     <label for="loginPassword" class="form-label">Senha:</label>
-                    <input type="password" class="form-control" id="loginPassword" required placeholder="Sua senha">
+                    <input type="password" class="form-control" id="loginPassword" required placeholder="Sua senha" minlength="8" maxlength="8">
                     <div class="invalid-feedback">Por favor, insira sua senha.</div>
                 </div>
                 <div class="d-grid gap-2 mb-3">
@@ -104,7 +106,7 @@
         }
 
         // Listener para o evento de submissão do formulário de login
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Impede o envio padrão do formulário
             const form = event.target;
             const loginInput = document.getElementById('loginUsername');
@@ -117,21 +119,24 @@
             let isValid = true; // Flag para controlar a validade geral do formulário
 
             // Validação de preenchimento do campo Login
-            if (loginInput.value.trim() === '') {
-                loginInput.classList.add('is-invalid');
-                isValid = false;
+            if (loginInput.value.trim().length === 6) { // Verifica se tem exatamente 6 caracteres
+                loginInput.classList.remove('is-invalid'); 
+                loginInput.classList.add('is-valid'); // Adiciona a classe de válido
             } else {
-                loginInput.classList.add('is-valid');
+                loginInput.classList.remove('is-valid'); 
+                loginInput.classList.add('is-invalid'); 
+                isValid = false; // Define isValid como falso se o tamanho não for 6
             }
 
             // Validação de preenchimento do campo Senha
-            if (passwordInput.value.trim() === '') {
-                passwordInput.classList.add('is-invalid');
-                isValid = false;
+            if (passwordInput.value.trim().length === 8) { // Verifica se tem exatamente 8 caracteres
+                passwordInput.classList.remove('is-invalid'); 
+                passwordInput.classList.add('is-valid'); // Adiciona a classe de válido
             } else {
-                passwordInput.classList.add('is-valid');
+                passwordInput.classList.remove('is-valid'); 
+                passwordInput.classList.add('is-invalid'); // Adiciona a classe de inválido
+                isValid = false; // Define isValid como falso se o tamanho não for 8
             }
-
             // Se os campos estiverem preenchidos
             if (isValid) {
                 // Recupera as credenciais temporárias do localStorage (simulação de autenticação)
@@ -162,7 +167,7 @@
         });
 
         // Listener para o botão 'Limpar'
-        document.getElementById('limparLogin').addEventListener('click', function() {
+        document.getElementById('limparLogin').addEventListener('click', function () {
             document.getElementById('loginForm').reset(); // Reseta os campos do formulário
             // Remove as classes de validação dos campos
             document.getElementById('loginUsername').classList.remove('is-invalid', 'is-valid');
@@ -172,4 +177,5 @@
     </script>
     <script src="javaScript/darkmodee.js"></script>
 </body>
+
 </html>
