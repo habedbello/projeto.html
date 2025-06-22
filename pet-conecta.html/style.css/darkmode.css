@@ -174,11 +174,11 @@ body.dark-mode .cartoes-container .cartao .botao-cartao:hover {
 
 /* Seção Como Adotar */
 body.dark-mode .como-adotar ol li {
-    color: #c0c0c0; /* Texto da lista */
+    color: #bab8be; /* Texto da lista */
 }
 
 body.dark-mode .como-adotar strong {
-    color: #e0e0e0; /* Destaque para o texto em negrito */
+    color: #bb86fc; /* Destaque para o texto em negrito */
 }
 
 body.dark-mode .como-adotar .link-form-adocao {
@@ -192,29 +192,50 @@ body.dark-mode .como-adotar .link-form-adocao:hover {
     border: 1px solid #9a67ea;
 }
 
+body.dark-mode .como-adotar h2{
+    color: #bb86fc;
+}
+body.dark-mode .como-adotar p{
+    color: rgb(255, 255, 255);
+}
+body.dark-mode .como-adotar{
+    background-color: #2a2a2a;
+}
+
+
 /* Linha horizontal */
 body.dark-mode hr {
     border-color: #333; /* Cor da linha divisória */
 }
 
 /* Seção Doar um Anjo de Quatro Patas */
+body.dark-mode .secao h2{
+    color: #9a67ea;
+}
+body.dark-mode .secao p{
+    color: white;
+}
+body.dark-mode .info-doacao{
+    background-color: #2a2a2a;
+}
+
 body.dark-mode .info-doacao ul li {
-    color: #c0c0c0; /* Texto da lista de doação */
+    color: #111111; /* Texto da lista de doação */
 }
 
 body.dark-mode .info-doacao strong {
-    color: #e0e0e0; /* Destaque para o texto em negrito */
+    color: #610de7; /* Destaque para o texto em negrito */
 }
 
 body.dark-mode .info-doacao .link-form-doacao {
-    background-color: #03dac6;
+    background-color: #bb86fc;
     color: #121212;
-    border: 1px solid #03dac6;
+    border: 1px solid #bb86fc;
 }
 
 body.dark-mode .info-doacao .link-form-doacao:hover {
-    background-color: #018786;
-    border: 1px solid #018786;
+    background-color: #a25bca;
+    border: 1px solid #a25bca;
 }
 
 
@@ -238,12 +259,12 @@ body.dark-mode .adoção {
 body.dark-mode .sobrenos {
     border: 1px solid #333;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-    background-color: #03dac6;
+    background-image: linear-gradient(45deg,#2a2a2a);
 }
 
 
 body.dark-mode .sobrenosh1 {
-    color: #029e8e; /* Cor de destaque para o título de doações */
+    color: #8745d8; /* Cor de destaque para o título de doações */
 }
 
 body.dark-mode .doacao p {
@@ -251,19 +272,19 @@ body.dark-mode .doacao p {
 }
 
 body.dark-mode .doacao em {
-    color: #0f0f0f; /* Enfatiza o texto em itálico */
+    color: #e5e3e7; /* Enfatiza o texto em itálico */
 }
 
 /* Botão "SAIBA MAIS" na seção de doações */
 body.dark-mode #btnsobrenos {
-    background-color: #bb86fc; /* Cor de destaque para o botão */
-    color: #121212; /* Texto escuro no botão */
-    border: 1px solid #bb86fc;
+    background-color: #8745d8; /* Cor de destaque para o botão */
+    color: #f1ebeb; /* Texto escuro no botão */
+    border: 1px solid #8745d8;
 }
 
 body.dark-mode #btnsobrenos:hover {
-    background-color: #9a67ea; /* Destaque mais escuro ao passar o mouse */
-    border: 1px solid #9a67ea;
+    background-color: #5f4091; /* Destaque mais escuro ao passar o mouse */
+    border: 1px solid #6b2dce;
 }
 
 
@@ -439,7 +460,7 @@ body.dark-mode .text-center a:hover {
 }
 
 
-/*-----------------------------------------SAIBA MAIS---------------------------------------/*
+/*-----------------------------------------SOBRE NÓS--------------------------------------/*
 
 
 /* Seção principal "Sobre Nós" */
@@ -532,6 +553,7 @@ body.dark-mode .sobre-nos__valores ul {
 
 body.dark-mode .sobre-nos__valores ul li {
     margin-bottom: 0.5em;
+    color: #03dac6;
 }
 
 body.dark-mode .sobre-nos__valores strong {

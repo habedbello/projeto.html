@@ -37,6 +37,15 @@
             </div>
         </nav>
     </header>
+
+    <!-- VLibras Plugin -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
     <main>
         <section id="sobre-nos" class="sobre-nos">
             <div class="container">
@@ -126,6 +135,13 @@
     <!-- JavaScript Personalizado para funcionalidades gerais e de login/logout -->
     <script src="javaScript/main.js"></script>
     <script src="javaScript/darkmodee.js"></script>
+
+     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    
 </body>
 
 </html>
