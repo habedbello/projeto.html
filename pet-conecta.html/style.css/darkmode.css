@@ -60,11 +60,12 @@ body.dark-mode .cartao-info h3 {
 }
 
 body.dark-mode .link-saiba-mais {
-    color: #03dac6; /* Outra cor de destaque para links */
+    color: #1d1f1e; /* Outra cor de destaque para links */
 }
 
 body.dark-mode .link-saiba-mais:hover {
-    color: #018786; 
+    color: #1f9925; 
+    background-color: #ffffff;
 }
 
 body.dark-mode hr {

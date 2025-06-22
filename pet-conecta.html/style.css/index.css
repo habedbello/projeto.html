@@ -68,7 +68,8 @@ a img:hover{
     border-color: rgb(0, 113, 128);
     color: white;   
     font-size: 16px; 
-    padding: 0px;
+    padding: 4px;
+    gap: 10px;
 }
 
 img#topo-img {

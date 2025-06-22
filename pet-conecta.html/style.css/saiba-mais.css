@@ -7,7 +7,7 @@
 #toggle-dark-mode{
     padding: 2px 10px;
     border-radius: 6px;
-    border: none;
+    border: none;   
     background-color: rgba(0, 0, 0, 0.0);
     font-size: 20pxpx;
 }
@@ -74,7 +74,7 @@ a img{
     border-color: rgb(0, 113, 128);
     color: white;   
     font-size: 16px; 
-    padding: 0px;
+    padding: 4px;
 }
 
 /* Estilização geral para a seção "Sobre Nós" */
